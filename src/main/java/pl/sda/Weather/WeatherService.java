@@ -6,20 +6,17 @@ import java.io.IOException;
 import java.net.URL;
 
 public class WeatherService {
-    private String url;
-    private String key;
+
     private String finalURL;
+    private Weather weather;
+    ObjectMapper mapper = new ObjectMapper();
 
     public WeatherService(String url, String key) {
-        this.url = url;
-        this.key = key;
-
-        finalURL = url + key;
+        finalURL = url + "?access_key=" + key;
     };
 
-    public Current getWeatherService(String cityName) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        Weather object = mapper.readValue(new URL(finalURL+cityName), Weather.class);
-        return object.getCurrent();
+    public Weather getWeatherService(String cityName) throws IOException {
+        finalURL = finalURL + "&query=" + cityName;
+        return mapper.readValue(new URL(finalURL), Weather.class);
     }
 }
