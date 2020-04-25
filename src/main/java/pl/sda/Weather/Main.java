@@ -21,7 +21,5 @@ public class Main {
         System.out.println(readWeather.getRequest().getQuery());
         System.out.println(readWeather.getTemperature());
 
-        WeatherService service = new WeatherService( "http://api.weatherstack.com/current","8f8920fad8ebff615f1885f7a9e03704");//odczyt z URL
-        System.out.println(service.getWeatherService("Poznan")); // odczyt z URL dla miasta Poznan
     }
 }
