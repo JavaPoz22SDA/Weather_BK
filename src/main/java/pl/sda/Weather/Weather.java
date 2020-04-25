@@ -4,18 +4,18 @@ public class Weather {
 
     private Double temperature;
     private String city;
-    private AirPollution airPollution;
     private Request request;
     private Location location;
+    private Current current;
 
     public Weather() {}; // zrobione po to aby program nie wywalał InvalidDefinitionException.
 
-    public Weather(Double temperature, String city, AirPollution airPollution, Request request, Location location) {
+    public Weather(Double temperature, String city, Request request, Location location, Current current) {
         this.temperature = temperature;
         this.city = city;
-        this.airPollution = airPollution;
         this.request = request;
         this.location = location;
+        this.current = current;
     }
 
     public Double getTemperature() {
@@ -34,14 +34,6 @@ public class Weather {
         this.city = city;
     }
 
-    public AirPollution getAirPollution() {
-        return airPollution;
-    }
-
-    public void setAirPollution(AirPollution airPollution) {
-        this.airPollution = airPollution;
-    }
-
     public Request getRequest() {
         return request;
     }
@@ -56,5 +48,13 @@ public class Weather {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Current getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Current current) {
+        this.current = current;
     }
 }
